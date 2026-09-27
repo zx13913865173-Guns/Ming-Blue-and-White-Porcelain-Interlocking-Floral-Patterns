@@ -1,0 +1,27 @@
+{
+  "workflow_name": "Ming Porcelain Interlocking Floral - Blank Conditioning (Group F)",
+  "model": {
+    "name": "sd_v1.5_pruned",
+    "path": "models/checkpoints/sd_v1.5_pruned.safetensors"
+  },
+  "lora": {
+    "path": "models/lora/porcelain_rank8.safetensors",
+    "strength": 1.0
+  },
+  "controlnet": {
+    "name": "control_v11p_sd15_lineart",
+    "path": "models/controlnet/control_v11p_sd15_lineart.pth",
+    "preprocessor": "none",
+    "conditioning_map": "all_white",
+    "conditioning_scale": 0.7
+  },
+  "sampler": {
+    "name": "DPM++ 2M Karras",
+    "steps": 30,
+    "cfg": 7.5,
+    "resolution": [512, 512],
+    "seed_range": [1, 40]
+  },
+  "prompt": "ming dynasty blue and white porcelain, interlocking floral scroll pattern, horizontal band, repeating units, cobalt blue on white, fine brushwork",
+  "negative_prompt": "low quality, blurry, distorted, ugly, bad anatomy, watermark, text"
+}
