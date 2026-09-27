@@ -1,0 +1,35 @@
+# LoRA rank-8 fine-tuning configuration
+# Based on kohya-ss/sd-scripts via SD-Trainer Mikazuki v0.6.5
+
+pretrained_model_name_or_path: models/checkpoints/sd_v1.5_pruned.safetensors
+train_data_dir: dataset/train
+output_dir: outputs/lora_rank8
+logging_dir: logs/lora_rank8
+
+resolution: 512
+enable_bucket: true
+min_bucket_reso: 256
+max_bucket_reso: 1024
+bucket_reso_steps: 64
+
+network_module: networks.lora
+network_dim: 8
+network_alpha: 16
+
+train_batch_size: 1
+max_train_epochs: 20
+learning_rate: 1.0e-4
+lr_scheduler: cosine
+optimizer_type: AdamW8bit
+mixed_precision: fp16
+save_precision: fp16
+seed: 42
+
+gradient_checkpointing: true
+xformers: true
+cache_latents: true
+shuffle_caption: true
+keep_tokens: 1
+
+save_model_as: safetensors
+save_every_n_epochs: 5
